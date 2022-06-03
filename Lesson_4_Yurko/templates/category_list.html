@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}
+    Список категорий курсов
+{% endblock %}
+{% block style %}
+	{% include "inc-style.html" %}
+{% endblock %}
+{% block menu %}
+    {% include "inc-category-title.html" %}
+	{% include "inc-menu.html" %}
+{% endblock %}
+{% block content %}
+    {% include "inc-links.html" %}
+    <a href="/editor/">Назад</a>
+
+    <h2>Список категорий</h2>
+
+    <ul>
+        {% for item in objects_list %}
+        <li>
+            {{item.name}} <span>Количество курсов: {{item.course_count()}}</span>
+        </li>
+        {% endfor %}
+    </ul>
+
+	<div>
+		<li><a href="/courses-list/">Список курсов</a></li>
+		<li><a href="/create-course/">Создать курс</a></li>
+	</div>
+{% endblock %}
+{% block footer %}
+	{% include "inc-footer.html" %}
+{% endblock %}

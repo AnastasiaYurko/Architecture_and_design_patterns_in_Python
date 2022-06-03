@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}
+    Список курсов
+{% endblock %}
+{% block style %}
+	{% include "inc-style.html" %}
+{% endblock %}
+{% block menu %}
+    {% include "inc-course-title.html" %}
+	{% include "inc-menu.html" %}
+{% endblock %}
+{% block content %}
+    {% include "inc-links.html" %}
+    <div>
+		<ul class="menu_editor">
+        	<li><a href="/editor">Назад в редактор</a></li>
+			<li><a href="/create-course/?id={{id}}">Создать новый курс</a></li>
+		</ul>
+	</div>
+    <div>
+        <h3>Список курсов для категории "{{name}}":</h3>
+        <table>
+            <tr class="head">
+                <th>Название курса</th>
+                <th>Преподаватель</th>
+                <th>Тип</th></tr>
+            </tr>
+            {% for item in objects_list %}
+            <tr>
+                <td><b>{{item.name}}</b></td>
+                <td>{{item.teacher}}</td>
+                <td>{{item.type_}}</td></tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
+{% block footer %}
+	{% include "inc-footer.html" %}
+{% endblock %}

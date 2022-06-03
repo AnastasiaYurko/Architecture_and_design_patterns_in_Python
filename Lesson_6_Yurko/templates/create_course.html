@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}
+Создание курса
+{% endblock %}
+{% block style %}
+	{% include "inc-style.html" %}
+{% endblock %}
+{% block menu %}
+    {% include "inc-create-course-title.html" %}
+	{% include "inc-menu.html" %}
+{% endblock %}
+{% block content %}
+    {% include "inc-links.html" %}
+    <div>
+        <a href="/courses-list/?id={{id}}">назад</a>
+    </div>
+
+
+    <div>
+        <h3>Создание курса для категории "{{name}}"</h3>
+        <form method="post">
+            <div class="edit">
+                <edit_title>Название:</edit_title>
+                <input type="text" name="name" placeholder="">
+            </div>
+            <div class="edit_select">
+                <label for="course_type" class="edit_title">Тип:</label>
+                    <p><select name="course_type" id="course_type">
+                        <option value='interactive'>Интерактивный</option>
+                        <option value='record'>Вебинарный</option>
+                    </select></p>
+                <label for="course_teacher" class="edit_title">Преподаватель:</label>
+                <p><select name="course_teacher" id="course_teacher">
+                    <option value="------">не определен</option>
+<!--                    {% for item in teachers %}-->
+<!--                    <option value="{{item.name}}">{{item.name}}</option>-->
+<!--                    {% endfor %}-->
+                    </select></p>
+                <div class="edit">
+                    <edit_title>Информация:</edit_title>
+                    <input type="text" name="course_info" placeholder="">
+                </div>
+                <button type="submit">Сохранить</button>
+                {% for item in objects_list %}
+                <li>
+                    {{item.name}}
+                    {% for course in item.courses %}
+                        {{course.name}}
+                    {% endfor %}
+                </li>
+                {% endfor %}
+            </div>
+
+        </form>
+    </div>
+{% endblock %}
+{% block footer %}
+	{% include "inc-footer.html" %}
+{% endblock %}

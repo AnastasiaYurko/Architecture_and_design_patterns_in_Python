@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}
+Создание курса
+{% endblock %}
+{% block style %}
+	{% include "inc-style.html" %}
+{% endblock %}
+{% block menu %}
+    {% include "inc-create-course-title.html" %}
+	{% include "inc-menu.html" %}
+{% endblock %}
+{% block content %}
+    {% include "inc-links.html" %}
+    <div>
+        <a href="/courses-list/?id={{id}}">Назад</a>
+    </div>
+
+    <br>
+    <br>
+
+    <div>
+        <h3>Создание курса для категории "{{name}}"</h3>
+        <form method="post">
+            <div class="edit">
+                <edit_title>Название:</edit_title>
+                <input type="text" name="name" placeholder="">
+            </div>
+            <div class="edit_select">
+                <label for="teacher" class="edit_title">Преподователь:</label>
+                    <p><select name="teacher" id="teacher">
+                        <option value='Станислав Вербицкий'>Станислав Вербицкий</option>
+                        <option value='Смыслова Дарья'>Смыслова Дарья</option>
+                        <option value='Замыслов Константин'>Замыслов Константин</option>
+                    </select></p>
+                <label for="type_" class="edit_title">Тип:</label>
+                    <p><select name="type_" id="type_">
+                        <option value='interactive'>Интерактивный</option>
+                        <option value='record'>Вебинарный</option>
+                    </select></p>
+
+            </div>
+            <button type="submit">Сохранить</button>
+        </form>
+    </div>
+{% endblock %}
+{% block footer %}
+	{% include "inc-footer.html" %}
+{% endblock %}

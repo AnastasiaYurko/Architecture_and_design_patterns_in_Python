@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}
+Список преподавателей
+{% endblock %}
+{% block style %}
+	{% include "inc-style.html" %}
+{% endblock %}
+{% block menu %}
+	{% include "inc-teacher-title.html" %}
+	{% include "inc-menu.html" %}
+{% endblock %}
+{% block content %}
+{% include "inc-links.html" %}
+	<div>
+		<li>
+			<a href="/create-teacher/">Создать преподавателя</a>
+		</li>
+	</div>
+    <h3>Список преподавателей</h3>
+{% endblock %}
+{% block footer %}
+	{% include "inc-footer.html" %}
+{% endblock %}
